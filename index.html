@@ -1,191 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dollarhp.net - Money Exchange</title>
-  
-  <!-- Bootstrap CSS -->
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  
-  <!-- Font Awesome -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
-  <!-- Custom Styles -->
-  <style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Obfuscator using de4js</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
     body {
-      font-family: Arial, sans-serif;
-    }
-    .navbar {
-      background-color: #00b3ff;
-    }
-    .navbar-brand img {
-      width: 120px;
-    }
-    .exchange-box {
-      background-color: #eef9ff;
-      padding: 20px;
-      margin: 20px 0;
-    }
-    .footer {
-      background-color: #2f3043;
-      color: #fff;
-      padding: 40px 0;
-    }
-    .footer a {
-      color: #00b3ff;
-    }
-    .modal-header {
-      background-color: #00b3ff;
-      color: #fff;
-    }
-  </style>
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+}
+</style>
 </head>
 <body>
-
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand" href="#"><img src="logo.png" alt="Dollarhp Logo"></a>
-    <div class="ml-auto">
-      <button class="btn btn-outline-light" data-toggle="modal" data-target="#loginModal">Login</button>
-      <button class="btn btn-light" data-toggle="modal" data-target="#signupModal">Sign Up</button>
+    <div class="container">
+        <h1>JS Obfuscator using de4js</h1>
+        <textarea id="input-code" placeholder="Enter your JavaScript code..."></textarea>
+        <button id="obfuscate-btn">Obfuscate Code</button>
+        <div id="output"></div>
     </div>
-  </nav>
 
-  <!-- Exchange Section -->
-  <div class="container exchange-box">
-    <div class="text-center">
-      <h2>Start Exchange</h2>
-      <form>
-        <div class="form-group">
-          <label for="send">SEND</label>
-          <select class="form-control" id="send">
-            <option>Nagad BDT</option>
-            <option>Payeer</option>
-            <option>Litecoin USD</option>
-            <!-- Add more options -->
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="receive">RECEIVE</label>
-          <select class="form-control" id="receive">
-            <option>Perfect Money USD</option>
-            <option>Payeer</option>
-            <option>Litecoin USD</option>
-            <!-- Add more options -->
-          </select>
-        </div>
-        <button type="submit" class="btn btn-primary btn-block">Exchange</button>
-      </form>
-    </div>
-  </div>
+    <script src="https://cdn.jsdelivr.net/npm/de4js@1.1.1/dist/de4js.min.js"></script>
+    <script>document.getElementById('obfuscate-btn').addEventListener('click', async function() {
+    const inputCode = document.getElementById('input-code').value;
+    const obfuscatedCode = await de4js.obfuscate(inputCode, {
+        renameGlobals: true,
+        renameProperties: true,
+        renameFunctions: true,
+        renameVariables: true,
+    });
 
-  <!-- Latest Exchanges Section -->
-  <div class="container">
-    <h3 class="text-center">Latest Exchanges</h3>
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>Time</th>
-          <th>Exchange Direction</th>
-          <th>Amount</th>
-          <th>User</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>15 minutes ago</td>
-          <td>Perfect Money - Bkash</td>
-          <td>1180 BDT</td>
-          <td>Nurul Amin</td>
-          <td><span class="badge badge-warning">Pending</span></td>
-        </tr>
-        <!-- Add more rows -->
-      </tbody>
-    </table>
-  </div>
+    const outputHtml = `<pre>${obfuscatedCode}</pre>`;
+    document.getElementById('output').innerHTML = outputHtml;
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container text-center">
-      <div class="row">
-        <div class="col-md-6">
-          <p>For Help: +8801763-015559</p>
-          <p>Working Time: 9:00 AM - 11:00 PM</p>
-        </div>
-        <div class="col-md-6">
-          <p>Follow Us: 
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-          </p>
-          <p>&copy; 2024 Dollarhp.net. All rights reserved.</p>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Login Modal -->
-  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="loginModalLabel">Login</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="email">Email address</label>
-              <input type="email" class="form-control" id="email" placeholder="Enter email">
-            </div>
-            <div class="form-group">
-              <label for="password">Password</label>
-              <input type="password" class="form-control" id="password" placeholder="Password">
-            </div>
-            <button type="submit" class="btn btn-primary">Login</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Signup Modal -->
-  <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="signupModalLabel">Sign Up</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="username">Username</label>
-              <input type="text" class="form-control" id="username" placeholder="Enter username">
-            </div>
-            <div class="form-group">
-              <label for="emailSignup">Email address</label>
-              <input type="email" class="form-control" id="emailSignup" placeholder="Enter email">
-            </div>
-            <div class="form-group">
-              <label for="passwordSignup">Password</label>
-              <input type="password" class="form-control" id="passwordSignup" placeholder="Password">
-            </div>
-            <button type="submit" class="btn btn-primary">Sign Up</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Bootstrap JS and dependencies -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    console.log('Code obfuscated!');
+});</script>
 </body>
 </html>
