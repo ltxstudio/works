@@ -3,112 +3,189 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DollarHP - Exchange Platform</title>
+  <title>Dollarhp.net - Money Exchange</title>
   
   <!-- Bootstrap CSS -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   
-  <!-- Font Awesome CSS -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="style.css">
+  <!-- Custom Styles -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .navbar {
+      background-color: #00b3ff;
+    }
+    .navbar-brand img {
+      width: 120px;
+    }
+    .exchange-box {
+      background-color: #eef9ff;
+      padding: 20px;
+      margin: 20px 0;
+    }
+    .footer {
+      background-color: #2f3043;
+      color: #fff;
+      padding: 40px 0;
+    }
+    .footer a {
+      color: #00b3ff;
+    }
+    .modal-header {
+      background-color: #00b3ff;
+      color: #fff;
+    }
+  </style>
 </head>
 <body>
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand" href="#">
-      <img src="logo.png" alt="DollarHP" width="30" height="30" class="d-inline-block align-top">
-      DollarHP.net
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Exchange</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Rates</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About Us</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" data-toggle="modal" data-target="#signupModal">Sign Up</a>
-        </li>
-      </ul>
+    <a class="navbar-brand" href="#"><img src="logo.png" alt="Dollarhp Logo"></a>
+    <div class="ml-auto">
+      <button class="btn btn-outline-light" data-toggle="modal" data-target="#loginModal">Login</button>
+      <button class="btn btn-light" data-toggle="modal" data-target="#signupModal">Sign Up</button>
     </div>
   </nav>
 
-  <!-- Main Section -->
-  <div class="container mt-4">
-    <div class="box">
-      <div class="box-header">Start Exchange</div>
-      <div class="box-body">
-        <form>
-          <div class="form-group">
-            <label for="send">SEND</label>
-            <select class="form-control" id="send">
-              <option>Nagad BDT</option>
-              <option>bkash</option>
-              <!-- More options -->
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="receive">RECEIVE</label>
-            <select class="form-control" id="receive">
-              <option>Perfect Money USD</option>
-              <option>Payeer</option>
-              <!-- More options -->
-            </select>
-          </div>
-          <button id="exchange-btn" class="btn">Exchange</button>
-        </form>
-      </div>
-    </div>
-
-    <!-- Latest Exchanges -->
-    <div class="box">
-      <div class="box-header">Latest Exchanges</div>
-      <div class="box-body">
-        <!-- Add latest exchange table here -->
-      </div>
-    </div>
-
-    <!-- Testimonials -->
-    <div class="box">
-      <div class="box-header">Testimonials</div>
-      <div class="box-body">
-        <div class="testimonial">
-          <div class="testimonial-header">by Hridoy</div>
-          <div class="testimonial-body">Very good site!</div>
+  <!-- Exchange Section -->
+  <div class="container exchange-box">
+    <div class="text-center">
+      <h2>Start Exchange</h2>
+      <form>
+        <div class="form-group">
+          <label for="send">SEND</label>
+          <select class="form-control" id="send">
+            <option>Nagad BDT</option>
+            <option>Payeer</option>
+            <option>Litecoin USD</option>
+            <!-- Add more options -->
+          </select>
         </div>
-        <!-- Add more testimonials -->
+        <div class="form-group">
+          <label for="receive">RECEIVE</label>
+          <select class="form-control" id="receive">
+            <option>Perfect Money USD</option>
+            <option>Payeer</option>
+            <option>Litecoin USD</option>
+            <!-- Add more options -->
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Exchange</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Latest Exchanges Section -->
+  <div class="container">
+    <h3 class="text-center">Latest Exchanges</h3>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Exchange Direction</th>
+          <th>Amount</th>
+          <th>User</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>15 minutes ago</td>
+          <td>Perfect Money - Bkash</td>
+          <td>1180 BDT</td>
+          <td>Nurul Amin</td>
+          <td><span class="badge badge-warning">Pending</span></td>
+        </tr>
+        <!-- Add more rows -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-md-6">
+          <p>For Help: +8801763-015559</p>
+          <p>Working Time: 9:00 AM - 11:00 PM</p>
+        </div>
+        <div class="col-md-6">
+          <p>Follow Us: 
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </p>
+          <p>&copy; 2024 Dollarhp.net. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Login Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Login</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control" id="email" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer class="text-center py-3">
-    <p>&copy; 2024 DollarHP.net | All Rights Reserved</p>
-    <p>For Help: +8801705-555559</p>
-  </footer>
+  <!-- Signup Modal -->
+  <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="signupModalLabel">Sign Up</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" class="form-control" id="username" placeholder="Enter username">
+            </div>
+            <div class="form-group">
+              <label for="emailSignup">Email address</label>
+              <input type="email" class="form-control" id="emailSignup" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+              <label for="passwordSignup">Password</label>
+              <input type="password" class="form-control" id="passwordSignup" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Bootstrap JS and dependencies -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-  <!-- Custom JS (optional) -->
-  <script src="script.js"></script>
 </body>
 </html>
