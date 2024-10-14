@@ -1,3 +1,151 @@
+/* Custom Styles for DollarHP */
+
+/* Body and background colors */
+body {
+  background-color: #e3f6f5;  /* Light cyan/blue for background */
+  color: #333;  /* Dark text color for readability */
+  font-family: 'Arial', sans-serif;
+}
+
+.navbar {
+  background-color: #008cba; /* Main blue color for the navbar */
+}
+
+.navbar-brand {
+  color: #fff !important; /* White logo text */
+}
+
+.navbar-nav .nav-link {
+  color: #fff !important; /* White navigation text */
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ffdd00 !important; /* Yellow on hover */
+}
+
+/* Modals */
+.modal-content {
+  background-color: #f8f9fa; /* Light background inside modals */
+  border: none;
+}
+
+.modal-header {
+  background-color: #008cba; /* Blue header for the modals */
+  color: white;
+}
+
+.modal-footer button {
+  background-color: #008cba; /* Blue buttons in the modal */
+  color: white;
+}
+
+.modal-footer button:hover {
+  background-color: #005f73; /* Darker blue on hover */
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #008cba;
+  border-color: #008cba;
+}
+
+.btn-primary:hover {
+  background-color: #005f73;
+}
+
+/* Footer */
+footer {
+  background-color: #004f6e; /* Darker blue for the footer */
+  color: white;
+}
+
+footer p {
+  margin: 0;
+}
+
+footer a {
+  color: #ffdd00; /* Yellow links in footer */
+}
+
+/* Section headings */
+h5, h6 {
+  color: #008cba; /* Blue headings */
+}
+
+/* Exchange button */
+#exchange-btn {
+  background-color: #008cba;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-transform: uppercase;
+}
+
+#exchange-btn:hover {
+  background-color: #005f73;
+}
+
+/* Testimonials, News and Rates box styling */
+.box {
+  background-color: #ffffff; /* White background for boxes */
+  border: 1px solid #d3e0ea; /* Light border */
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.box-header {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #008cba;
+  border-bottom: 2px solid #ffdd00; /* Yellow underline */
+}
+
+.box-body {
+  padding-top: 10px;
+}
+
+/* Exchange Rates and Reserves tables */
+.table thead th {
+  background-color: #008cba; /* Blue header for tables */
+  color: white;
+}
+
+.table tbody td {
+  color: #333;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #f0f8ff; /* Light blue row hover */
+}
+
+/* Testimonials section */
+.testimonial {
+  background-color: #ffdd00;
+  color: #333;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.testimonial-header {
+  font-weight: bold;
+}
+
+.testimonial-body {
+  font-style: italic;
+}
+
+/* Custom link styles */
+a {
+  color: #008cba;
+}
+
+a:hover {
+  color: #005f73;
+}
+
+
 /* Chat button styling */
 #chat-button {
   position: fixed;
