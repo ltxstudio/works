@@ -1,0 +1,90 @@
+<html>
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let display = document.getElementById('display');
+            let buttons = Array.from(document.getElementsByClassName('button'));
+            buttons.map(button => {
+                button.addEventListener('click', (e) => {
+                    switch (e.target.innerText) {
+                        case 'C':
+                            display.innerText = '';
+                            break;
+                        case '←':
+                            if (display.innerText) {
+                                display.innerText = display.innerText.slice(0, -1);
+                            }
+                            break;
+                        case '=':
+                            try {
+                                display.innerText = eval(display.innerText);
+                            } catch {
+                                display.innerText = 'Error';
+                            }
+                            break;
+                        default:
+                            display.innerText += e.target.innerText;
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body class="bg-gray-100 flex flex-col justify-between h-screen">
+    <!-- Top Bar -->
+    <div class="flex justify-between items-center p-2">
+        <div class="text-sm">11:49 AM</div>
+        <div class="flex space-x-2">
+            <i class="fas fa-fan"></i>
+            <i class="fas fa-bell"></i>
+            <i class="fas fa-signal"></i>
+            <div class="flex items-center space-x-1">
+                <span class="text-xs">3.94 K/S</span>
+                <i class="fas fa-wifi"></i>
+                <span class="text-xs">Vo LTE</span>
+                <i class="fas fa-battery-three-quarters"></i>
+                <span class="text-xs">86</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Icons -->
+    <div class="flex justify-center space-x-8 mt-4">
+        <i class="far fa-clock text-2xl"></i>
+        <i class="fas fa-sync-alt text-2xl"></i>
+        <i class="fas fa-ruler text-2xl"></i>
+    </div>
+
+    <!-- Display -->
+    <div class="bg-white text-right p-4 text-3xl" id="display"></div>
+
+    <!-- Calculator Buttons -->
+    <div class="grid grid-cols-4 gap-4 p-4 bg-white">
+        <button class="button text-red-500 text-2xl">C</button>
+        <button class="button text-blue-500 text-2xl">%</button>
+        <button class="button text-blue-500 text-2xl">←</button>
+        <button class="button text-blue-500 text-2xl">/</button>
+
+        <button class="button text-2xl">7</button>
+        <button class="button text-2xl">8</button>
+        <button class="button text-2xl">9</button>
+        <button class="button text-blue-500 text-2xl">*</button>
+
+        <button class="button text-2xl">4</button>
+        <button class="button text-2xl">5</button>
+        <button class="button text-2xl">6</button>
+        <button class="button text-blue-500 text-2xl">-</button>
+
+        <button class="button text-2xl">1</button>
+        <button class="button text-2xl">2</button>
+        <button class="button text-2xl">3</button>
+        <button class="button text-blue-500 text-2xl">+</button>
+
+        <button class="button text-2xl">0</button>
+        <button class="button text-2xl">.</button>
+        <button class="button col-span-2 bg-blue-500 text-white text-2xl rounded-lg p-4">=</button>
+    </div>
+</body>
+</html>
